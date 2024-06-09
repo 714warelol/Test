@@ -1,0 +1,28 @@
+local player = game.Players.LocalPlayer
+local camera = game.Workspace.CurrentCamera
+
+-- Original camera CFrame before changes
+local originalCameraCFrame = camera.CFrame
+
+-- Function to reset the camera to its original position
+local function resetCamera()
+    camera.CFrame = originalCameraCFrame
+end
+
+-- Reset camera to original position
+resetCamera()
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+-- Original character position before teleportation
+local originalCharacterPosition = humanoidRootPart.Position
+
+-- Function to reset character position
+local function resetCharacterPosition()
+    humanoidRootPart.CFrame = CFrame.new(originalCharacterPosition)
+end
+
+-- Reset character to original position
+resetCharacterPosition()
