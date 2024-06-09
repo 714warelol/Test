@@ -210,6 +210,15 @@ LeftGroupBox:AddDropdown('RollBackDropDown', {
     end
 })
 
+local MyButton = LeftGroupBox:AddButton({
+    Text = 'Teleport',
+    Func = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/714warelol/Test/main/Teleport"))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Self Explanatory.'
+})
+
 LeftBackGroupBox:AddSlider('MySlider', {
     Text = 'Lag Value',
     Default = 5,
@@ -246,8 +255,66 @@ local MyButton = LeftBackGroupBox:AddButton({
 })
 
 
+local LeftGroupBox2 = Tabs.Main:AddLeftGroupbox('Visuals');
+LeftGroupBox2:AddLabel('Gems Adder (Only Visual)', true)
+
+LeftGroupBox2:AddInput('MyTextbox', {
+    Default = '',
+    Numeric = true, -- true / false, only allows numbers
+    Finished = true, -- true / false, only calls callback when you press enter
+
+    Text = 'Enter Amount of Gems',
+    Tooltip = 'Updated your gems (only visuals u cant buy anything with this)', -- Information shown when you hover over the textbox
+
+    Placeholder = 'Enter Amount of Gems', -- placeholder text when the box is empty
+    -- MaxLength is also an option which is the max length of the text
+
+    Callback = function(Value)
+        print('Updated Gems to:', Value)
+    end
+})
+
+LeftGroupBox2:AddLabel('Coins Adder (Only Visual)', true)
+
+LeftGroupBox2:AddInput('MyTextbox', {
+    Default = '',
+    Numeric = true, -- true / false, only allows numbers
+    Finished = true, -- true / false, only calls callback when you press enter
+
+    Text = 'Enter Amount of Coins',
+    Tooltip = 'Updated your Coins (only visuals u cant buy anything with this)', -- Information shown when you hover over the textbox
+
+    Placeholder = 'Enter Amount of Coins', -- placeholder text when the box is empty
+    -- MaxLength is also an option which is the max length of the text
+
+    Callback = function(Value)
+        print('Updated Coins to:', Value)
+    end
+})
+
 -- UI Settings
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
+
+local LeftGroupBox3 = Tabs.Main:AddLeftGroupbox('Misc');
+
+local MyButton = LeftGroupBox3:AddButton({
+    Text = 'Low GFX',
+    Func = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/714warelol/Test/main/LOWGFX"))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'ENABLES LOW GFX'
+})
+
+local MyButton = LeftGroupBox3:AddButton({
+    Text = 'Streamer Mode',
+    Func = function()
+        print("Hello")
+    end,
+    DoubleClick = false,
+    Tooltip = 'ENABLES STREAMER MODE (ANONYMOUS MODE)'
+})
+
 
 -- I set NoUI so it does not show up in the keybinds menu
 
