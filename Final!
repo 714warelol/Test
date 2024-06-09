@@ -37,6 +37,8 @@ local RightGroupBox = Tabs.Main:AddRightGroupbox('Main Exploits')
 local LeftBackGroupBox = Tabs.RollBack:AddLeftGroupbox('RollBack Exploits')
 local RightBackGroupBox = Tabs.RollBack:AddRightGroupbox('RollBack Exploits 2')
 
+local RightGroupBox3 = Tabs.Main:AddLeftGroupbox('Leaderboard Faker ')
+
 local function ActivateESP()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/714warelol/Test/main/espanimedefenders.txt"))()
     -- Add your activation code here
@@ -258,38 +260,46 @@ local MyButton = LeftBackGroupBox:AddButton({
 local LeftGroupBox2 = Tabs.Main:AddLeftGroupbox('Visuals');
 LeftGroupBox2:AddLabel('Gems Adder (Only Visual)', true)
 
-LeftGroupBox2:AddInput('MyTextbox', {
-    Default = '',
-    Numeric = true, -- true / false, only allows numbers
-    Finished = true, -- true / false, only calls callback when you press enter
+local MyButton = LeftGroupBox2:AddButton({
+    Text = 'Get Gems',
+    Func = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/714warelol/Test/main/gems"))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Gives you gems (only visuals)'
+})
 
-    Text = 'Enter Amount of Gems',
-    Tooltip = 'Updated your gems (only visuals u cant buy anything with this)', -- Information shown when you hover over the textbox
+LeftGroupBox2:AddLabel('Summon Gems Adder (Only Visual)', true)
 
-    Placeholder = 'Enter Amount of Gems', -- placeholder text when the box is empty
-    -- MaxLength is also an option which is the max length of the text
-
-    Callback = function(Value)
-        print('Updated Gems to:', Value)
-    end
+local MyButton = LeftGroupBox2:AddButton({
+    Text = 'Get Gems',
+    Func = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/714warelol/Test/main/gems2"))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Gives you Gems (only visuals)'
 })
 
 LeftGroupBox2:AddLabel('Coins Adder (Only Visual)', true)
 
-LeftGroupBox2:AddInput('MyTextbox', {
-    Default = '',
-    Numeric = true, -- true / false, only allows numbers
-    Finished = true, -- true / false, only calls callback when you press enter
+local MyButton = LeftGroupBox2:AddButton({
+    Text = 'Get Coins',
+    Func = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/714warelol/Test/main/Gold"))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Gives you coins (only visuals)'
+})
 
-    Text = 'Enter Amount of Coins',
-    Tooltip = 'Updated your Coins (only visuals u cant buy anything with this)', -- Information shown when you hover over the textbox
+LeftGroupBox2:AddLabel('Traits Adder (Only Visual)', true)
 
-    Placeholder = 'Enter Amount of Coins', -- placeholder text when the box is empty
-    -- MaxLength is also an option which is the max length of the text
-
-    Callback = function(Value)
-        print('Updated Coins to:', Value)
-    end
+local MyButton = LeftGroupBox2:AddButton({
+    Text = 'Get Traits',
+    Func = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/714warelol/Test/main/trait"))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Gives you Traits (only visuals)'
 })
 
 -- UI Settings
@@ -315,6 +325,15 @@ local MyButton = LeftGroupBox3:AddButton({
     Tooltip = 'ENABLES STREAMER MODE (ANONYMOUS MODE)'
 })
 
+local MyButton = RightGroupBox3:AddButton({
+    Text = 'Top Kills (All Time)',
+    Func = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/714warelol/Test/main/AllTimeKills"))()
+    end,
+    DoubleClick = false,
+    Tooltip = 'Changes the first place of Leaderboard of All time kills to urs'
+})
+
 
 -- I set NoUI so it does not show up in the keybinds menu
 
@@ -327,6 +346,7 @@ Library.Unload = function(...)
     originalUnload(...)
     print("GUI and functions unloaded")
 end
+
 
 MenuGroup:AddButton('Unload', function() Library:Unload() end)
 MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' })
@@ -361,7 +381,7 @@ SaveManager:BuildConfigSection(Tabs['UI Settings'])
 -- Builds our theme menu (with plenty of built in themes) on the left side
 -- NOTE: you can also call ThemeManager:ApplyToGroupbox to add it to a specific groupbox
 ThemeManager:ApplyToTab(Tabs['UI Settings'])
-
 -- You can use the SaveManager:LoadAutoloadConfig() to load a config
 -- which has been marked to be one that auto loads!
 SaveManager:LoadAutoloadConfig()
+
