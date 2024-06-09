@@ -13,7 +13,7 @@ local targetY = -11.548667907714844
 local targetZ = -591.4005126953125
 
 -- Delay between each loop iteration (in seconds)
-local delay = 1
+local delay = 0.2
 
 -- Main loop function
 local function mainLoop()
