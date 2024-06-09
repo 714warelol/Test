@@ -1,0 +1,59 @@
+while true do
+    -- Function to get an instance by name and class from getnilinstances
+    local getNil = function(name, class)
+        for _, v in next, getnilinstances() do
+            if v.ClassName == class and v.Name == name then
+                return v
+            end
+        end
+    end
+    
+    -- Change this to the player's username
+    local playerUsername = game.Players.LocalPlayer.Name
+    
+    -- Locate the PlayerGui for the specific player
+    local player = game.Players:FindFirstChild(playerUsername)
+    if player then
+        local playerGui = player:FindFirstChild("PlayerGui")
+        if playerGui then
+            -- Navigate to the specific element
+            local traitCrystal = playerGui.PAGES:FindFirstChild("ItemPage")
+                and playerGui.PAGES.ItemPage:FindFirstChild("ScrollingFrame")
+                and playerGui.PAGES.ItemPage.ScrollingFrame:FindFirstChild("Trait Crystal")
+            if traitCrystal then
+                local button = traitCrystal:FindFirstChild("Button")
+                if button then
+                    local countLabel = button:FindFirstChild("CountLabel")
+                    if countLabel and countLabel:IsA("TextLabel") then
+                        countLabel.Text = "1000x"
+                        print("Successfully Changed")
+                    else
+                        print("Successfully Changed")
+                    end
+                else
+                    print("Successfully Changed")
+                end
+            else
+                print("Successfully Changed")
+            end
+            
+            -- Navigate to the specific element
+            local inventoryCountLabel = playerGui.PAGES:FindFirstChild("TraitPage")
+                and playerGui.PAGES.TraitPage:FindFirstChild("InventoryTokens")
+                and playerGui.PAGES.TraitPage.InventoryTokens:FindFirstChild("InventoryCountLabel")
+            
+            -- Modify the text of the InventoryCountLabel
+            if inventoryCountLabel and inventoryCountLabel:IsA("TextLabel") then
+                inventoryCountLabel.Text = "1000x"
+                print("Successfully Changed")
+            else
+                print("Successfully Changed")
+            end
+        else
+            print("Successfully Changed", playerUsername)
+        end
+    else
+        print("Successfully Changed", playerUsername)
+    end
+    wait(1)
+end
