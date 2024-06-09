@@ -48,7 +48,7 @@ end
  
 bomb(289, 5) --// change values if client crashes
 end
-local phrases = {"marvco4362 | my server is .gg/soggy join it for the script", "marvco4362 | im lagging this server i hate all of you", "marvco4362 | together we can get rid of all the script kiddies"}
+local phrases = {"########", "########", "########"}
 
 while true do
     for i = 1, 5 do
