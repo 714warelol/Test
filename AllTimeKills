@@ -1,0 +1,43 @@
+-- Function to get an instance by name and class from getnilinstances
+local getNil = function(name, class)
+    for _, v in next, getnilinstances() do
+        if v.ClassName == class and v.Name == name then
+            return v
+        end
+    end
+end
+
+-- Change this to the player's username
+local playerUsername = game.Players.LocalPlayer.Name
+
+-- Locate the PlayerGui for the specific player
+local player = game.Players:FindFirstChild(playerUsername)
+if player then
+    local playerGui = player:FindFirstChild("PlayerGui")
+    if playerGui then
+        -- Navigate to the specific elements
+        local frame = game.Workspace.SubStuff_DONT_DELETE.Leaderboards.AllTimeKills.Board.SurfaceGui.ScrollingFrame.Rank_1.Frame
+        local playerNameLabel = frame:FindFirstChild("PlayerName")
+        local playerImageLabel = frame:FindFirstChild("PlayerImage")
+
+        -- Modify the text of the PlayerName TextLabel
+        if playerNameLabel and playerNameLabel:IsA("TextLabel") then
+            playerNameLabel.Text = playerUsername
+            print("PlayerName TextLabel text changed.")
+        else
+            print("PlayerName TextLabel not found or not a TextLabel.")
+        end
+
+        -- Delete the PlayerImage ImageLabel
+        if playerImageLabel and playerImageLabel:IsA("ImageLabel") then
+            playerImageLabel:Destroy()
+            print("PlayerImage ImageLabel deleted.")
+        else
+            print("PlayerImage ImageLabel not found or not an ImageLabel.")
+        end
+    else
+        print("PlayerGui not found for player:", playerUsername)
+    end
+else
+    print("Player not found:", playerUsername)
+end
