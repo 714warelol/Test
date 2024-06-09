@@ -21,28 +21,6 @@ end
 main()
 
 local player = game.Players.LocalPlayer
-local camera = game.Workspace.CurrentCamera
-
--- Function to make the camera look at specific coordinates
-local function lookAtCoordinates(x, y, z)
-    local lookAtPosition = Vector3.new(x, y, z)
-    camera.CFrame = CFrame.new(camera.CFrame.Position, lookAtPosition)
-end
-
--- Coordinates to look at
-local targetX = -1672.2464599609375
-local targetY = -11.548667907714844
-local targetZ = -591.4005126953125
-
--- Main function
-local function main()
-    lookAtCoordinates(targetX, targetY, targetZ)
-    print("Camera is now looking at coordinates:", targetX, targetY, targetZ)
-end
-
-main()
-
-local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
