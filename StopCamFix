@@ -1,5 +1,0 @@
-local function stopLoop()
-    _G.isRunning = false
-end
-
-stopLoop()
