@@ -8,10 +8,8 @@ while true do
         end
     end
     
-    -- Change this to the player's username
     local playerUsername = game.Players.LocalPlayer.Name
     
-    -- Locate the PlayerGui for the specific player
     local player = game.Players:FindFirstChild(playerUsername)
     if player then
         local playerGui = player:FindFirstChild("PlayerGui")
@@ -26,34 +24,32 @@ while true do
                     local countLabel = button:FindFirstChild("CountLabel")
                     if countLabel and countLabel:IsA("TextLabel") then
                         countLabel.Text = "1000x"
-                        print("Successfully Changed")
+                        print("")
                     else
-                        print("Successfully Changed")
+                        print("")
                     end
                 else
-                    print("Successfully Changed")
+                    print("")
                 end
             else
-                print("Successfully Changed")
+                print("")
             end
             
-            -- Navigate to the specific element
             local inventoryCountLabel = playerGui.PAGES:FindFirstChild("TraitPage")
                 and playerGui.PAGES.TraitPage:FindFirstChild("InventoryTokens")
                 and playerGui.PAGES.TraitPage.InventoryTokens:FindFirstChild("InventoryCountLabel")
             
-            -- Modify the text of the InventoryCountLabel
             if inventoryCountLabel and inventoryCountLabel:IsA("TextLabel") then
                 inventoryCountLabel.Text = "1000x"
-                print("Successfully Changed")
+                print("")
             else
-                print("Successfully Changed")
+                print("")
             end
         else
-            print("Successfully Changed", playerUsername)
+            print("")
         end
     else
-        print("Successfully Changed", playerUsername)
+        print("")
     end
     wait(1)
 end
