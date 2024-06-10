@@ -1,20 +1,15 @@
--- This script should be placed in ServerScriptService or a LocalScript in StarterPlayerScripts
-
 local function setLowGraphics()
     local lighting = game:GetService("Lighting")
 
-    -- Reduce the quality of shadows
     lighting.GlobalShadows = false
     lighting.OutdoorAmbient = Color3.fromRGB(127, 127, 127)
 
-    -- Reduce the quality of textures
     for _, v in pairs(workspace:GetDescendants()) do
         if v:IsA("BasePart") then
             v.Material = Enum.Material.SmoothPlastic
         end
     end
 
-    -- Disable other graphical effects
     lighting.Brightness = 1
     lighting.ColorShift_Bottom = Color3.new(0, 0, 0)
     lighting.ColorShift_Top = Color3.new(0, 0, 0)
@@ -26,7 +21,6 @@ local function setLowGraphics()
     lighting.FogEnd = 1000
     lighting.FogStart = 1000
 
-    -- Disable PostProcessingEffects
     for _, effect in pairs(lighting:GetChildren()) do
         if effect:IsA("PostEffect") then
             effect.Enabled = false
@@ -34,5 +28,4 @@ local function setLowGraphics()
     end
 end
 
--- Execute the function to apply low graphics settings
 setLowGraphics()
