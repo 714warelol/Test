@@ -1,4 +1,3 @@
--- Function to get an instance by name and class from getnilinstances
 local getNil = function(name, class)
     for _, v in next, getnilinstances() do
         if v.ClassName == class and v.Name == name then
@@ -7,21 +6,17 @@ local getNil = function(name, class)
     end
 end
 
--- Change this to the player's username
 local playerUsername = game.Players.LocalPlayer.Name
 
--- Locate the PlayerGui for the specific player
 local player = game.Players:FindFirstChild(playerUsername)
 if player then
     local playerGui = player:FindFirstChild("PlayerGui")
     if playerGui then
-        -- Navigate to the specific element
         local priceDisplay = playerGui.PAGES:FindFirstChild("SummonPage")
             and playerGui.PAGES.SummonPage:FindFirstChild("Holder")
             and playerGui.PAGES.SummonPage.Holder:FindFirstChild("PriceDisplay")
             and playerGui.PAGES.SummonPage.Holder.PriceDisplay:FindFirstChild("TextLabel")
         
-        -- Modify the text of the PriceDisplay TextLabel
         if priceDisplay and priceDisplay:IsA("TextLabel") then
             priceDisplay.Text = "752,832"
             print("")
