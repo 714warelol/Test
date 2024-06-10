@@ -1,24 +1,19 @@
 local player = game.Players.LocalPlayer
 local camera = game.Workspace.CurrentCamera
 
--- Function to make the camera look at specific coordinates
 local function lookAtCoordinates(x, y, z)
     local lookAtPosition = Vector3.new(x, y, z)
     camera.CFrame = CFrame.new(camera.CFrame.Position, lookAtPosition)
 end
 
--- Coordinates to look at
 local targetX = -1672.2464599609375
 local targetY = -11.548667907714844
 local targetZ = -591.4005126953125
 
--- Delay between each loop iteration (in seconds)
 local delay = 0
 
--- Flag to control the loop
 _G.isRunning = true
 
--- Main loop function
 local function mainLoop()
     while _G.isRunning do
         lookAtCoordinates(targetX, targetY, targetZ)
@@ -27,6 +22,5 @@ local function mainLoop()
     end
 end
 
--- Start the loop
 _G.loopThread = coroutine.create(mainLoop)
 coroutine.resume(_G.loopThread)
