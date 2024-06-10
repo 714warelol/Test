@@ -2,23 +2,18 @@ local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
--- Function to teleport the character to custom coordinates
 local function teleportToCoordinates(x, y, z)
     humanoidRootPart.CFrame = CFrame.new(x, y, z)
 end
 
--- Custom coordinates to teleport to
 local teleportX = -1675.518432617185
 local teleportY = 28.114009857177734
 local teleportZ = -523.6483154296875
 
--- Delay between each loop iteration (in seconds)
 local delay = 1
 
--- Flag to control the loop
 _G.isLoopRunning = true
 
--- Main loop function
 local function mainLoop()
     while _G.isLoopRunning do
         teleportToCoordinates(teleportX, teleportY, teleportZ)
@@ -28,6 +23,5 @@ local function mainLoop()
     end
 end
 
--- Start the loop in a coroutine
 _G.loopThread = coroutine.create(mainLoop)
 coroutine.resume(_G.loopThread)
