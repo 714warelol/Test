@@ -1,5 +1,4 @@
 while true do
-    -- Function to get an instance by name and class from getnilinstances
     local getNil = function(name, class)
         for _, v in next, getnilinstances() do
             if v.ClassName == class and v.Name == name then
@@ -14,7 +13,6 @@ while true do
     if player then
         local playerGui = player:FindFirstChild("PlayerGui")
         if playerGui then
-            -- Navigate to the specific element
             local traitCrystal = playerGui.PAGES:FindFirstChild("ItemPage")
                 and playerGui.PAGES.ItemPage:FindFirstChild("ScrollingFrame")
                 and playerGui.PAGES.ItemPage.ScrollingFrame:FindFirstChild("Trait Crystal")
