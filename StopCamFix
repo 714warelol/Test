@@ -1,7 +1,5 @@
--- Function to stop the loop
 local function stopLoop()
     _G.isRunning = false
 end
 
--- Stop the loop
 stopLoop()
