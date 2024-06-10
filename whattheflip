@@ -1,23 +1,11 @@
 local player = game.Players.LocalPlayer
-local camera = game.Workspace.CurrentCamera
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-
--- Function to make the camera look at specific coordinates
-local function lookAtCoordinates(x, y, z)
-    local lookAtPosition = Vector3.new(x, y, z)
-    camera.CFrame = CFrame.new(camera.CFrame.Position, lookAtPosition)
-end
 
 -- Function to teleport the character to custom coordinates
 local function teleportToCoordinates(x, y, z)
     humanoidRootPart.CFrame = CFrame.new(x, y, z)
 end
-
--- Coordinates to look at
-local lookAtX = -1672.2464599609375
-local lookAtY = -11.548667907714844
-local lookAtZ = -591.4005126953125
 
 -- Custom coordinates to teleport to
 local teleportX = -1675.518432617185
@@ -27,12 +15,12 @@ local teleportZ = -523.6483154296875
 -- Delay between each loop iteration (in seconds)
 local delay = 1
 
+-- Flag to control the loop
+_G.isLoopRunning = true
+
 -- Main loop function
 local function mainLoop()
-    while true do
-        lookAtCoordinates(lookAtX, lookAtY, lookAtZ)
-        print("Camera is now looking at coordinates:", lookAtX, lookAtY, lookAtZ)
-        
+    while _G.isLoopRunning do
         teleportToCoordinates(teleportX, teleportY, teleportZ)
         print("Teleported to coordinates:", teleportX, teleportY, teleportZ)
         
@@ -40,5 +28,6 @@ local function mainLoop()
     end
 end
 
--- Start the loop
-mainLoop()
+-- Start the loop in a coroutine
+_G.loopThread = coroutine.create(mainLoop)
+coroutine.resume(_G.loopThread)
