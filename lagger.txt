@@ -4,7 +4,7 @@ char.HumanoidRootPart.CFrame = CFrame.new(0,9e9,0)
 task.wait(0.5)
 char.HumanoidRootPart.Anchored = true
 end
-while wait(1.5) do --// don't change it's the best
+while wait(1.5) do
 game:GetService("NetworkClient"):SetOutgoingKBPSLimit(math.huge)
 local function getmaxvalue(val)
    local mainvalueifonetable = 499999
@@ -46,7 +46,7 @@ for i = 1, tries do
 end
 end
  
-bomb(289, 5) --// change values if client crashes
+bomb(289, 5)
 end
 local phrases = {"########", "########", "########"}
 
