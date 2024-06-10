@@ -2,20 +2,17 @@ local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
--- Function to teleport the character to custom coordinates
 local function teleportToCoordinates(x, y, z)
     humanoidRootPart.CFrame = CFrame.new(x, y, z)
 end
 
--- Custom coordinates you want to teleport to
 local targetX = -191.35707092285156
 local targetY = 8.306930541992188
 local targetZ = -311.7675476074219
 
--- Main function
 local function main()
     teleportToCoordinates(targetX, targetY, targetZ)
-    print("Teleported to coordinates:", targetX, targetY, targetZ)
+    print("")
 end
 
 main()
