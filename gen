@@ -1,22 +1,16 @@
--- Local Script to hide your own username from your screen
-
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 
--- Function to hide the name
 local function hidePlayerName()
     -- Check if the player's character is loaded
     local character = player.Character or player.CharacterAdded:Wait()
     local head = character:WaitForChild("Head")
 
-    -- Continuously check for BillboardGuis and remove them
     for _, child in pairs(head:GetChildren()) do
         if child:IsA("BillboardGui") then
             child:Destroy()
         end
     end
-
-    -- Watch for new BillboardGuis and remove them
     head.ChildAdded:Connect(function(child)
         if child:IsA("BillboardGui") then
             child:Destroy()
@@ -24,10 +18,8 @@ local function hidePlayerName()
     end)
 end
 
--- Call the function initially in case the character is already loaded
 if player.Character then
     hidePlayerName()
 end
 
--- Connect the function to the CharacterAdded event
 player.CharacterAdded:Connect(hidePlayerName)
