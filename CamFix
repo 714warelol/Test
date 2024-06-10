@@ -15,9 +15,12 @@ local targetZ = -591.4005126953125
 -- Delay between each loop iteration (in seconds)
 local delay = 0
 
+-- Flag to control the loop
+_G.isRunning = true
+
 -- Main loop function
 local function mainLoop()
-    while true do
+    while _G.isRunning do
         lookAtCoordinates(targetX, targetY, targetZ)
         print("Camera is now looking at coordinates:", targetX, targetY, targetZ)
         wait(delay)
@@ -25,4 +28,5 @@ local function mainLoop()
 end
 
 -- Start the loop
-mainLoop()
+_G.loopThread = coroutine.create(mainLoop)
+coroutine.resume(_G.loopThread)
