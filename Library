@@ -1104,15 +1104,6 @@ do
                 Color = "lightcontrast"
             }
             --
-            local esppreview_title = utility:Create("TextLabel", {Vector2.new(4,2), esppreview_inner}, {
-                Text = "ESP Preview",
-                Size = theme.textsize,
-                Font = theme.font,
-                Color = theme.textcolor,
-                OutlineColor = theme.textborder,
-                Position = utility:Position(0, 4, 0, 2, esppreview_inner)
-            }, window.VisualPreview.Drawings)
-            --
             local esppreview_visiblebutton = utility:Create("TextLabel", {Vector2.new(esppreview_inner.Size.X - (5 + 7),2), esppreview_inner}, {
                 Text = "O",
                 Size = theme.textsize,
